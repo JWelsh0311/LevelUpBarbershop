@@ -25,7 +25,8 @@
 </nav>
 
 <div class="content">
-<img src="logo.jpg" alt="logo" style="display: block; margin: auto; max-width: 100%; height: auto;">
+  <p id="quote" style="text-align: center; font-style: italic; font-size: 20px; color: #00FFFF; margin-bottom: 10px;"></p>
+  <img src="logo.jpg" alt="logo" style="display: block; margin: auto; max-width: 100%; height: auto;">
 </div>
 <br>
 
@@ -84,7 +85,7 @@
     </a>
 </p>
 
-<footer style="
+<div style="
   width: auto;
   max-width: 600px; /* Restricts the footer width */
   font-size: 10px;
@@ -99,18 +100,48 @@
   box-sizing: border-box;
   margin: 0 auto; /* Centers the footer horizontally */
 ">
-  &copy; 2025 John Welsh and LevelUpBarbershop. All rights reserved. Website content developed with AI assistance; final creative decisions by John Welsh and LevelUpBarbershop.
-</footer>
+  <div>
+    &copy; 2025 John Welsh and LevelUpBarbershop. All rights reserved.
+  </div>
+</div>
 
 <style>
   @media (max-width: 600px) {
-    footer {
+    div {
       font-size: 9px;
       padding: 0.4rem 1rem;
       max-width: 100%; /* Footer takes full width on mobile */
     }
+    div img {
+      max-width: 150px; /* Ensures signature scales down on mobile */
+    }
   }
 </style>
-<br><br>	
+
+<script>
+  const quotes = [
+    "A good haircut is the best confidence boost.",
+    "Life is too short for bad fades.",
+    "Stay sharp, look sharp.",
+    "Fresh cut, fresh start.",
+    "Every haircut is a masterpiece."
+  ];
+
+  let index = 0;
+  const quoteElement = document.getElementById("quote");
+
+  function showQuote() {
+    quoteElement.innerText = quotes[index];
+    index = (index + 1) % quotes.length; // loop back to start
+  }
+
+  // Show first quote immediately
+  showQuote();
+
+  // Change quote every 5 seconds
+  setInterval(showQuote, 5000);
+</script>
+
 </body>
 </html>
+
